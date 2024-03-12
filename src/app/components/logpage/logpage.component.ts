@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-logpage',
@@ -17,7 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatToolbarModule,
+    MatButtonModule,
   ],
   templateUrl: './logpage.component.html',
   styleUrl: './logpage.component.sass',

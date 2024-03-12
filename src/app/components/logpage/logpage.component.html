@@ -1,16 +1,20 @@
-<div class="container-fluid d-flex flex-column p-0 h-100">
-  <mat-form-field class="mx-auto my-auto">
-    <mat-label>Enter your api-key</mat-label>
-    <input
-      matInput
-      placeholder=""
-      required
-    />
-    @if (apikey.invalid) {
-    <mat-error>{{ getErrorMessage() }}</mat-error>
-    }
-  </mat-form-field>
-  <mat-toolbar color="primary" class="footer">
-    <span class="mx-auto">Footer Content</span>
-  </mat-toolbar>
+<div class="container-fluid d-flex flex-column p-0 h-100 background">
+  <div class="mx-auto my-auto">
+    <h1 class="text-center mb-4">LOGIN</h1>
+    <form class="text-center">
+      <mat-form-field class="w-100">
+        <mat-label>Enter your api-key</mat-label>
+        <input matInput required />
+        <mat-hint class="text-center w-100"
+          >Don't have an apikey?<a href="https://gorest.co.in/consumer/login"
+            >Got one</a
+          >
+        </mat-hint>
+        @if (apikey.invalid) {
+        <mat-error>{{ getErrorMessage() }}</mat-error>
+        }
+      </mat-form-field>
+      <button mat-raised-button color="primary" class="mt-3">CONFIRM</button>
+    </form>
+  </div>
 </div>
