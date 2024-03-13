@@ -1,20 +1,27 @@
 <div class="container-fluid d-flex flex-column p-0 h-100 background">
   <div class="mx-auto my-auto">
     <h1 class="text-center mb-4">LOGIN</h1>
-    <form class="text-center">
+    <form class="text-center" [formGroup]="logForm" (ngSubmit)="onSubmit()">
       <mat-form-field class="w-100">
         <mat-label>Enter your api-key</mat-label>
-        <input matInput required />
-        <mat-hint class="text-center w-100"
-          >Don't have an apikey?<a href="https://gorest.co.in/consumer/login"
-            >Got one</a
-          >
-        </mat-hint>
-        @if (apikey.invalid) {
-        <mat-error>{{ getErrorMessage() }}</mat-error>
-        }
+        <input matInput formControlName="apikey" required />
+        <mat-error *ngIf="apikey.touched && apikey.invalid">
+          You must enter a value
+        </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" class="mt-3">CONFIRM</button>
+      <mat-hint class="text-center mt-1">
+        Don't have an apikey? <a href="https://gorest.co.in/consumer/login">Got one</a>
+      </mat-hint>
+      <br />
+      <button
+        mat-raised-button
+        color="primary"
+        class="mt-3"
+        type="submit"
+        [disabled]="!apikey.valid"
+      >
+        CONFIRM
+      </button>
     </form>
   </div>
 </div>

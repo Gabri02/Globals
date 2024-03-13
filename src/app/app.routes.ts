@@ -2,11 +2,19 @@ import { Routes } from '@angular/router';
 import { HomepageComponent } from './components/homepage/homepage.component';
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'logpage' },
+  { path: '', pathMatch: 'full', redirectTo: '/' },
   {
     path: 'logpage',
-    loadChildren: () =>
-      import('./modules/login/login.module').then((c) => c.LoginModule),
+    loadComponent: () =>
+      import('./components/logpage/logpage.component').then(
+        (mod) => mod.LogpageComponent
+      ),
   },
-  { path: 'homepage', component: HomepageComponent },
+  {
+    path: 'homepage',
+    loadComponent: () =>
+      import('./components/homepage/homepage.component').then(
+        (mod) => mod.HomepageComponent
+      ),
+  },
 ];
