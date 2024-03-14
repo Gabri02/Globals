@@ -5,14 +5,30 @@ import { UsersService } from '../../services/users.service';
 import { Subscription } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { RouterOutlet } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, CommonModule],
+  imports: [
+    MatCardModule,
+    MatButtonModule,
+    CommonModule,
+    RouterOutlet,
+    MatFormFieldModule,
+    MatSelectModule,
+  ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.sass',
 })
 export class HomepageComponent implements OnInit {
+
+  
+  recordOptions: number[] = [10, 20, 50, 100];
+  selectedNumber!: number;
+
+
   token: string | null = null;
   usersList: any[] = [];
   subscription!: Subscription;
